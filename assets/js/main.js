@@ -15,10 +15,11 @@
 const MIN = 1;
 const MAX = 99;
 const N_NUM = 5;
-const T_SHOW = 2;
+const T_SHOW = 10;
 const el_randomCells = document.querySelectorAll(".random_array .cell");
 const el_inputCells = document.querySelectorAll(".input_array .cell");
 const el_check = document.querySelector(".check");
+const el_btnCoinfirm = document.querySelector(".btn_confirm");
 el_randomCells[1].classList
 
 // ===== MAIN ======================================================== //
@@ -26,10 +27,9 @@ resetAll();
 const randomArray = generateRandomArray(N_NUM, MIN, MAX);
 popolateCells(el_randomCells, randomArray)
 showCells(el_randomCells);
-/* setTimeout(hideRandomArray, T_SHOW * 1000, el_randomCells);
-setTimeout(showRandomArray, T_SHOW * 1000 * 5, el_randomCells); */
+setTimeout(hideArray, T_SHOW * 1000, el_randomCells);
 
-setTimeout(function () {
+/* setTimeout(function () {
     const arrayInput = convertToArray(prompt("Dammi i numeri"));
     console.log(arrayInput);
     const check = checkArray(el_randomCells, arrayInput);
@@ -41,10 +41,21 @@ setTimeout(function () {
     }
     showCells(el_inputCells);
 
-}, 1 * 1000);
+}, 1 * 1000); */
 
 
 // ===== EVENT ======================================================= //
+el_btnCoinfirm.addEventListener("click", function () {
+    const arrayInput = readCells(el_inputCells);
+    console.log(arrayInput);
+    const check = checkArray(randomArray, arrayInput);
+    if (check) {
+        showCheck("Sono Uguali");
+    } else {
+        showCheck("Sono Diversi");
+    }
+    showCells(el_inputCells);
+})
 
 
 // ===== FUNCTION ==================================================== //
@@ -83,11 +94,23 @@ function convertToArray(string) {
     return arrayNumber;
 }
 
-function checkArray(el_randomCells, arrayInput) {
+/* function checkArray(el_randomCells, arrayInput) {
     let isEqual = true;
     for (let i = 0; i < el_randomCells.length; i++) {
         console.log(`${el_randomCells[i].innerText} - ${arrayInput[i]}`);
         if (el_randomCells[i].innerText != arrayInput[i]) {
+            isEqual = false;
+        }
+    }
+    return isEqual;
+} */
+
+
+function checkArray(arrayRandom, arrayInput) {
+    let isEqual = true;
+    for (let i = 0; i < arrayRandom.length; i++) {
+        console.log(`${arrayRandom[i]} - ${arrayInput[i]}`);
+        if (arrayRandom[i] != arrayInput[i]) {
             isEqual = false;
         }
     }
@@ -102,6 +125,15 @@ function showCheck(string) {
 function resetAll() {
     el_check.innerText = "";
     el_check.classList.add("hide");
+}
+
+function readCells(el_cells) {
+    let array = [];
+    for (let i = 0; i < el_cells.length; i++) {
+        n = parseInt(el_cells[i].value);
+        array.push(n);
+    }
+    return array;
 }
 
 
