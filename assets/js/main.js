@@ -16,26 +16,31 @@ const MIN = 1;
 const MAX = 100;
 const N_NUM = 5;
 const T_SHOW = 2;
-const el_cells = document.querySelectorAll(".cell");
+const el_randomCells = document.querySelectorAll(".random_array .cell");
+const el_inputCells = document.querySelectorAll(".input_array .cell");
 const el_check = document.querySelector(".check");
-el_cells[1].classList
+el_randomCells[1].classList
 
 // ===== MAIN ======================================================== //
 resetAll();
-generateRandomArray(el_cells, N_NUM, MIN, MAX);
-showRandomArray(el_cells);
-/* setTimeout(hideRandomArray, T_SHOW * 1000, el_cells);
-setTimeout(showRandomArray, T_SHOW * 1000 * 5, el_cells); */
+const randomArray = generateRandomArray(N_NUM, MIN, MAX);
+popolateCells(el_randomCells, randomArray)
+showCells(el_randomCells);
+/* setTimeout(hideRandomArray, T_SHOW * 1000, el_randomCells);
+setTimeout(showRandomArray, T_SHOW * 1000 * 5, el_randomCells); */
 
 setTimeout(function () {
     const arrayInput = convertToArray(prompt("Dammi i numeri"));
     console.log(arrayInput);
-    const check = checkArray(el_cells, arrayInput);
+    const check = checkArray(el_randomCells, arrayInput);
+    popolateCells(el_inputCells, arrayInput)
     if (check) {
         showCheck("SONO UGUALI");
     } else {
         showCheck("SONO DIVERSI");
     }
+    showCells(el_inputCells);
+
 }, 1 * 1000);
 
 
@@ -43,20 +48,28 @@ setTimeout(function () {
 
 
 // ===== FUNCTION ==================================================== //
-function generateRandomArray(el_cells, count, min, max) {
+function generateRandomArray(count, min, max) {
+    let randomArray = [];
     for (let i = 0; i < count; i++) {
         const r = Math.floor((Math.random() * max) + min);
-        el_cells[i].innerText = r;
+        randomArray.push(r);
+    }
+    return randomArray;
+}
+
+function popolateCells(el_cells, array) {
+    for (let i = 0; i < el_randomCells.length; i++) {
+        el_cells[i].innerText = array[i];
     }
 }
 
-function showRandomArray(el_cells) {
-    for (let i = 0; i < el_cells.length; i++) {
+function showCells(el_cells) {
+    for (let i = 0; i < el_randomCells.length; i++) {
         el_cells[i].classList.remove("hide");
     }
 }
-function hideRandomArray(el_cells) {
-    for (let i = 0; i < el_cells.length; i++) {
+function hideArray(el_cells) {
+    for (let i = 0; i < el_randomCells.length; i++) {
         el_cells[i].classList.add("hide");
     }
 }
@@ -70,11 +83,11 @@ function convertToArray(string) {
     return arrayNumber;
 }
 
-function checkArray(el_cells, arrayInput) {
+function checkArray(el_randomCells, arrayInput) {
     let isEqual = true;
-    for (let i = 0; i < el_cells.length; i++) {
-        console.log(`${el_cells[i].innerText} - ${arrayInput[i]}`);
-        if (el_cells[i].innerText != arrayInput[i]) {
+    for (let i = 0; i < el_randomCells.length; i++) {
+        console.log(`${el_randomCells[i].innerText} - ${arrayInput[i]}`);
+        if (el_randomCells[i].innerText != arrayInput[i]) {
             isEqual = false;
         }
     }
