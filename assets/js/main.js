@@ -12,12 +12,38 @@
  * Invece di usare prompt e allerte usate inputs ed elementi della dom per mostrare a schermo il risultato. */
 
 // ===== VARIABLE ==================================================== //
-
+const MIN = 1;
+const MAX = 100;
+const N_NUM = 5;
+const T_SHOW = 2;
+const el_cells = document.querySelectorAll(".cell");
+el_cells[1].classList
 
 // ===== MAIN ======================================================== //
-
+generateRandomArray(el_cells, N_NUM, MIN, MAX);
+showRandomArray(el_cells);
+setTimeout(hideRandomArray, T_SHOW * 1000, el_cells);
+setTimeout(showRandomArray, T_SHOW * 1000, el_cells);
 
 // ===== EVENT ======================================================= //
 
 
 // ===== FUNCTION ==================================================== //
+function generateRandomArray(el_cells, count, min, max) {
+    for (let i = 0; i < count; i++) {
+        const r = Math.floor((Math.random() * max) + min);
+        el_cells[i].innerText = r;
+    }
+}
+
+function showRandomArray(el_cells) {
+    for (let i = 0; i < el_cells.length; i++) {
+        el_cells[i].classList.remove("hide");
+    }
+}
+function hideRandomArray(el_cells) {
+    for (let i = 0; i < el_cells.length; i++) {
+        el_cells[i].classList.add("hide");
+    }
+}
+

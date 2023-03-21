@@ -1,3 +1,17 @@
+:root {
+    --sm_shadow: #9d9d9d;
+}
+
 .debug * {
     border: 1px dashed red;
+}
+
+.cell {
+    padding: 0.5rem 1rem;
+    font-size: 2rem;
+    box-shadow: 0 0 10px var(--sm_shadow);
+}
+
+.hide {
+    display: none;
 }
