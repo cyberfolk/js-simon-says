@@ -15,7 +15,7 @@
 const MIN = 1;
 const MAX = 99;
 const N_NUM = 5;
-const T_SHOW = 10;
+const T_SHOW = 1;
 const el_randomCells = document.querySelectorAll(".random_array .cell");
 const el_inputCells = document.querySelectorAll(".input_array .cell");
 const el_check = document.querySelector(".check");
@@ -27,7 +27,7 @@ resetAll();
 const randomArray = generateRandomArray(N_NUM, MIN, MAX);
 popolateCells(el_randomCells, randomArray)
 showCells(el_randomCells);
-setTimeout(hideArray, T_SHOW * 1000, el_randomCells);
+const hideCellsTimeout = setTimeout(hideCells, T_SHOW * 1000, el_randomCells);
 
 /* setTimeout(function () {
     const arrayInput = convertToArray(prompt("Dammi i numeri"));
@@ -54,7 +54,9 @@ el_btnCoinfirm.addEventListener("click", function () {
     } else {
         showCheck("Sono Diversi");
     }
+    showCells(el_randomCells);
     showCells(el_inputCells);
+    clearTimeout(hideCellsTimeout);
 })
 
 
@@ -79,7 +81,7 @@ function showCells(el_cells) {
         el_cells[i].classList.remove("hide");
     }
 }
-function hideArray(el_cells) {
+function hideCells(el_cells) {
     for (let i = 0; i < el_randomCells.length; i++) {
         el_cells[i].classList.add("hide");
     }
