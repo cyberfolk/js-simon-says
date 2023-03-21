@@ -15,7 +15,7 @@
 const MIN = 1;
 const MAX = 99;
 const N_NUM = 5;
-const T_SHOW = 1;
+const T_SHOW = 30;
 const el_randomCells = document.querySelectorAll(".random_array .cell");
 const el_inputCells = document.querySelectorAll(".input_array .cell");
 const el_check = document.querySelector(".check");
@@ -27,7 +27,9 @@ resetAll();
 const randomArray = generateRandomArray(N_NUM, MIN, MAX);
 popolateCells(el_randomCells, randomArray)
 showCells(el_randomCells);
-const hideCellsTimeout = setTimeout(hideCells, T_SHOW * 1000, el_randomCells);
+hideCells(el_inputCells);
+setTimeout(hideCells, T_SHOW * 1000, el_randomCells);
+setTimeout(showCells, T_SHOW * 1000, el_inputCells);
 
 /* setTimeout(function () {
     const arrayInput = convertToArray(prompt("Dammi i numeri"));
@@ -56,7 +58,6 @@ el_btnCoinfirm.addEventListener("click", function () {
     }
     showCells(el_randomCells);
     showCells(el_inputCells);
-    clearTimeout(hideCellsTimeout);
 })
 
 
