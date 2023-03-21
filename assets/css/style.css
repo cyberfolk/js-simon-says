@@ -21,12 +21,12 @@
 .check {
     font-size: 2rem;
     font-weight: bold;
+    height: 66.5px;
 }
 
 .title_array {
     padding: 0.5rem 1rem;
     font-size: 2rem;
     font-weight: bold;
-    width: 250px;
-    height: 64px;
+    text-align: end;
 }

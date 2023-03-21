@@ -13,7 +13,7 @@
 
 // ===== VARIABLE ==================================================== //
 const MIN = 1;
-const MAX = 100;
+const MAX = 99;
 const N_NUM = 5;
 const T_SHOW = 2;
 const el_randomCells = document.querySelectorAll(".random_array .cell");
@@ -35,9 +35,9 @@ setTimeout(function () {
     const check = checkArray(el_randomCells, arrayInput);
     popolateCells(el_inputCells, arrayInput)
     if (check) {
-        showCheck("SONO UGUALI");
+        showCheck("Sono Uguali");
     } else {
-        showCheck("SONO DIVERSI");
+        showCheck("Sono Diversi");
     }
     showCells(el_inputCells);
 
