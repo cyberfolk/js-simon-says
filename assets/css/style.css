@@ -15,7 +15,7 @@
 }
 
 .hide {
-    display: none;
+    visibility: hidden;
 }
 
 .check {
@@ -28,4 +28,5 @@
     font-size: 2rem;
     font-weight: bold;
     width: 250px;
+    height: 64px;
 }
