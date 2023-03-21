@@ -17,9 +17,11 @@ const MAX = 100;
 const N_NUM = 5;
 const T_SHOW = 2;
 const el_cells = document.querySelectorAll(".cell");
+const el_check = document.querySelector(".check");
 el_cells[1].classList
 
 // ===== MAIN ======================================================== //
+resetAll();
 generateRandomArray(el_cells, N_NUM, MIN, MAX);
 showRandomArray(el_cells);
 /* setTimeout(hideRandomArray, T_SHOW * 1000, el_cells);
@@ -30,9 +32,9 @@ setTimeout(function () {
     console.log(arrayInput);
     const check = checkArray(el_cells, arrayInput);
     if (check) {
-        console.log("SONO UGUALI");
+        showCheck("SONO UGUALI");
     } else {
-        console.log("SONO DIVERSI");
+        showCheck("SONO DIVERSI");
     }
 }, 1 * 1000);
 
@@ -78,5 +80,16 @@ function checkArray(el_cells, arrayInput) {
     }
     return isEqual;
 }
+
+function showCheck(string) {
+    el_check.classList.remove("hide");
+    el_check.innerText = string;
+}
+
+function resetAll() {
+    el_check.innerText = "";
+    el_check.classList.add("hide");
+}
+
 
 
