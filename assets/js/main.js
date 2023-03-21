@@ -22,8 +22,20 @@ el_cells[1].classList
 // ===== MAIN ======================================================== //
 generateRandomArray(el_cells, N_NUM, MIN, MAX);
 showRandomArray(el_cells);
-setTimeout(hideRandomArray, T_SHOW * 1000, el_cells);
-setTimeout(showRandomArray, T_SHOW * 1000, el_cells);
+/* setTimeout(hideRandomArray, T_SHOW * 1000, el_cells);
+setTimeout(showRandomArray, T_SHOW * 1000 * 5, el_cells); */
+
+setTimeout(function () {
+    const arrayInput = convertToArray(prompt("Dammi i numeri"));
+    console.log(arrayInput);
+    const check = checkArray(el_cells, arrayInput);
+    if (check) {
+        console.log("SONO UGUALI");
+    } else {
+        console.log("SONO DIVERSI");
+    }
+}, 1 * 1000);
+
 
 // ===== EVENT ======================================================= //
 
@@ -46,4 +58,25 @@ function hideRandomArray(el_cells) {
         el_cells[i].classList.add("hide");
     }
 }
+
+function convertToArray(string) {
+    const arrayChar = string.split(" ");
+    const arrayNumber = [];
+    for (let i = 0; i < arrayChar.length; i++) {
+        arrayNumber[i] = parseInt(arrayChar[i]);
+    }
+    return arrayNumber;
+}
+
+function checkArray(el_cells, arrayInput) {
+    let isEqual = true;
+    for (let i = 0; i < el_cells.length; i++) {
+        console.log(`${el_cells[i].innerText} - ${arrayInput[i]}`);
+        if (el_cells[i].innerText != arrayInput[i]) {
+            isEqual = false;
+        }
+    }
+    return isEqual;
+}
+
 
