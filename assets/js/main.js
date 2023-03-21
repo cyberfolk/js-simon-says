@@ -58,7 +58,7 @@ function generateRandomArray(count, min, max) {
 }
 
 function popolateCells(el_cells, array) {
-    for (let i = 0; i < el_randomCells.length; i++) {
+    for (let i = 0; i < array.length; i++) {
         el_cells[i].innerText = array[i];
     }
 }
