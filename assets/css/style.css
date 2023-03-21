@@ -22,3 +22,10 @@
     font-size: 2rem;
     font-weight: bold;
 }
+
+.title_array {
+    padding: 0.5rem 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    width: 250px;
+}
