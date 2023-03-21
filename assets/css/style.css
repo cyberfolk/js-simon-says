@@ -30,3 +30,9 @@
     font-weight: bold;
     text-align: end;
 }
+
+.btn_confirm {
+    padding: 0.5rem 1rem;
+    font-size: 2rem;
+    border-radius: 1rem;
+}
