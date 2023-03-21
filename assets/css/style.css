@@ -10,8 +10,15 @@
     padding: 0.5rem 1rem;
     font-size: 2rem;
     box-shadow: 0 0 10px var(--sm_shadow);
+    width: 66.5px;
+    text-align: center;
 }
 
 .hide {
     display: none;
+}
+
+.check {
+    font-size: 2rem;
+    font-weight: bold;
 }
