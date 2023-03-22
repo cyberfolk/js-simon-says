@@ -19,6 +19,7 @@ const T_SHOW = 5;
 const el_randomCells = document.querySelectorAll(".random_array .cell");
 const el_inputCells = document.querySelectorAll(".input_array .cell");
 const el_check = document.querySelector(".check");
+const el_timer = document.querySelector(".timer");
 const el_btnCoinfirm = document.querySelector(".btn_confirm");
 el_randomCells[1].classList
 
@@ -26,7 +27,24 @@ el_randomCells[1].classList
 resetAll();
 const randomArray = generateRandomArray(N_NUM, MIN, MAX);
 popolateCells(el_randomCells, randomArray)
-hideCells(el_inputCells);
+
+// Set the time of this instant
+let timeStart = new Date().getTime();
+
+// Update the count down every 1000 millisecond
+let x = setInterval(function () {
+    // 1000 milliseconds have passed I update the counter
+    let timePast = new Date().getTime() - timeStart;
+    let timeLeft = T_SHOW * 1000 - timePast;
+
+    // Output the result in an element with id="demo"
+    el_timer.innerHTML = Math.floor(timeLeft / 1000).toFixed(0);
+    if (timeLeft < 0) {
+        clearInterval(x);
+        el_timer.innerHTML = 0;
+    }
+}, 1000);
+
 setTimeout(disappearCells, T_SHOW * 1000, el_randomCells);
 setTimeout(appearCells, (T_SHOW + 1) * 1000, el_inputCells);
 
@@ -128,4 +146,23 @@ function appearCells(el_cells) {
 }
 
 
+
+function startTimer() {
+    disappearCells(el_randomCells);
+    // Set the time of this instant
+    var timeStart = new Date().getTime();
+
+    // Update the count down every 1000 millisecond
+    setInterval(countdown, 1000, timeStart);
+
+}
+function countdown(timeStart) {
+    console.log("141");
+    // 1000 milliseconds have passed I update the counter
+    var timePast = new Date().getTime() - timeStart;
+    var timeLeft = T_SHOW - timePast;
+
+    // Output the result in an element with id="demo"
+    document.getElementById("demo").innerHTML = timeLeft;
+}
 
