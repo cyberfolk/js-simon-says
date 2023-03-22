@@ -15,7 +15,7 @@
 const MIN = 1;
 const MAX = 99;
 const N_NUM = 5;
-const T_SHOW = 30;
+const T_SHOW = 5;
 const el_randomCells = document.querySelectorAll(".random_array .cell");
 const el_inputCells = document.querySelectorAll(".input_array .cell");
 const el_check = document.querySelector(".check");
@@ -26,24 +26,9 @@ el_randomCells[1].classList
 resetAll();
 const randomArray = generateRandomArray(N_NUM, MIN, MAX);
 popolateCells(el_randomCells, randomArray)
-showCells(el_randomCells);
 hideCells(el_inputCells);
-setTimeout(hideCells, T_SHOW * 1000, el_randomCells);
-setTimeout(showCells, T_SHOW * 1000, el_inputCells);
-
-/* setTimeout(function () {
-    const arrayInput = convertToArray(prompt("Dammi i numeri"));
-    console.log(arrayInput);
-    const check = checkArray(el_randomCells, arrayInput);
-    popolateCells(el_inputCells, arrayInput)
-    if (check) {
-        showCheck("Sono Uguali");
-    } else {
-        showCheck("Sono Diversi");
-    }
-    showCells(el_inputCells);
-
-}, 1 * 1000); */
+setTimeout(disappearCells, T_SHOW * 1000, el_randomCells);
+setTimeout(appearCells, (T_SHOW + 1) * 1000, el_inputCells);
 
 
 // ===== EVENT ======================================================= //
@@ -51,13 +36,12 @@ el_btnCoinfirm.addEventListener("click", function () {
     const arrayInput = readCells(el_inputCells);
     console.log(arrayInput);
     const check = checkArray(randomArray, arrayInput);
+    appearCells(el_randomCells);
     if (check) {
         showCheck("Sono Uguali");
     } else {
         showCheck("Sono Diversi");
     }
-    showCells(el_randomCells);
-    showCells(el_inputCells);
 })
 
 
@@ -82,6 +66,7 @@ function showCells(el_cells) {
         el_cells[i].classList.remove("hide");
     }
 }
+
 function hideCells(el_cells) {
     for (let i = 0; i < el_randomCells.length; i++) {
         el_cells[i].classList.add("hide");
@@ -96,18 +81,6 @@ function convertToArray(string) {
     }
     return arrayNumber;
 }
-
-/* function checkArray(el_randomCells, arrayInput) {
-    let isEqual = true;
-    for (let i = 0; i < el_randomCells.length; i++) {
-        console.log(`${el_randomCells[i].innerText} - ${arrayInput[i]}`);
-        if (el_randomCells[i].innerText != arrayInput[i]) {
-            isEqual = false;
-        }
-    }
-    return isEqual;
-} */
-
 
 function checkArray(arrayRandom, arrayInput) {
     let isEqual = true;
@@ -137,6 +110,21 @@ function readCells(el_cells) {
         array.push(n);
     }
     return array;
+}
+
+function disappearCells(el_cells) {
+    for (let i = 0; i < el_randomCells.length; i++) {
+        el_cells[i].classList.remove("appear");
+        el_cells[i].classList.add("disappear");
+    }
+}
+
+function appearCells(el_cells) {
+    showCells(el_cells);
+    for (let i = 0; i < el_randomCells.length; i++) {
+        el_cells[i].classList.remove("disappear");
+        el_cells[i].classList.add("appear");
+    }
 }
 
 

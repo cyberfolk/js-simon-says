@@ -12,6 +12,40 @@
     box-shadow: 0 0 10px var(--sm_shadow);
     width: 100px;
     text-align: center;
+    position: relative;
+    top: 0%;
+}
+
+@keyframes go_out {
+    0% {
+        top: 0%;
+    }
+
+    100% {
+        top: -500%;
+    }
+}
+
+@keyframes go_down {
+    0% {
+        top: -500%;
+    }
+
+    100% {
+        top: 0%;
+    }
+}
+
+.disappear {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    top: 0%;
+    animation: go_out 1s ease;
+}
+
+.appear {
+    top: -0%;
+    animation: go_down 1s ease;
 }
 
 .hide {
@@ -35,4 +69,30 @@
     padding: 0.5rem 1rem;
     font-size: 2rem;
     border-radius: 1rem;
+}
+
+
+.cell_1 {
+    animation-delay: 0s;
+    transition-delay: 0.5s;
+}
+
+.cell_2 {
+    animation-delay: 0.5s;
+    transition-delay: 0.5s;
+}
+
+.cell_3 {
+    animation-delay: 1s;
+    transition-delay: 1s;
+}
+
+.cell_4 {
+    animation-delay: 1.5s;
+    transition-delay: 1.5s;
+}
+
+.cell_5 {
+    animation-delay: 2s;
+    transition-delay: 2s;
 }
