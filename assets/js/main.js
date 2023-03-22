@@ -79,12 +79,6 @@ function popolateCells(el_cells, array) {
     }
 }
 
-function hideCells(el_cells) {
-    for (let i = 0; i < el_randomCells.length; i++) {
-        el_cells[i].classList.add("hide");
-    }
-}
-
 function checkArray(arrayRandom, arrayInput) {
     let isEqual = true;
     for (let i = 0; i < arrayRandom.length; i++) {
