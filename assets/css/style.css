@@ -52,17 +52,10 @@
     visibility: hidden;
 }
 
-.check {
-    font-size: 2rem;
-    font-weight: bold;
-    height: 50.5px;
-}
-
-.title_array {
+.title {
     padding: 0.5rem 1rem;
     font-size: 2rem;
     font-weight: bold;
-    text-align: end;
 }
 
 .btn_confirm {
@@ -95,4 +88,8 @@
 .cell_5 {
     animation-delay: 2s;
     transition-delay: 2s;
+}
+
+.notClickable {
+    pointer-events: none;
 }

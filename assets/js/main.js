@@ -21,7 +21,6 @@ const el_inputCells = document.querySelectorAll(".input_array .cell");
 const el_check = document.querySelector(".check");
 const el_timer = document.querySelector(".timer");
 const el_btnCoinfirm = document.querySelector(".btn_confirm");
-el_randomCells[1].classList
 
 // ===== MAIN ======================================================== //
 resetAll();
@@ -41,6 +40,7 @@ let x = setInterval(function () {
     el_timer.innerHTML = Math.floor(timeLeft / 1000).toFixed(0);
     if (timeLeft < 0) {
         clearInterval(x);
+        el_btnCoinfirm.classList.remove("notClickable");
         el_timer.innerHTML = 0;
     }
 }, 1000);
