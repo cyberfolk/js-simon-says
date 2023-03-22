@@ -91,15 +91,6 @@ function hideCells(el_cells) {
     }
 }
 
-function convertToArray(string) {
-    const arrayChar = string.split(" ");
-    const arrayNumber = [];
-    for (let i = 0; i < arrayChar.length; i++) {
-        arrayNumber[i] = parseInt(arrayChar[i]);
-    }
-    return arrayNumber;
-}
-
 function checkArray(arrayRandom, arrayInput) {
     let isEqual = true;
     for (let i = 0; i < arrayRandom.length; i++) {
