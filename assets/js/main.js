@@ -15,7 +15,7 @@
 const MIN = 1;
 const MAX = 99;
 const N_NUM = 5;
-const T_SHOW = 5;
+const T_SHOW = 30;
 const el_randomCells = document.querySelectorAll(".random_array .cell");
 const el_inputCells = document.querySelectorAll(".input_array .cell");
 const el_check = document.querySelector(".check");
