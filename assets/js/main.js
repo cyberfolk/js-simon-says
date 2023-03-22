@@ -144,25 +144,3 @@ function appearCells(el_cells) {
         el_cells[i].classList.add("appear");
     }
 }
-
-
-
-function startTimer() {
-    disappearCells(el_randomCells);
-    // Set the time of this instant
-    var timeStart = new Date().getTime();
-
-    // Update the count down every 1000 millisecond
-    setInterval(countdown, 1000, timeStart);
-
-}
-function countdown(timeStart) {
-    console.log("141");
-    // 1000 milliseconds have passed I update the counter
-    var timePast = new Date().getTime() - timeStart;
-    var timeLeft = T_SHOW - timePast;
-
-    // Output the result in an element with id="demo"
-    document.getElementById("demo").innerHTML = timeLeft;
-}
-
