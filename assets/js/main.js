@@ -79,12 +79,6 @@ function popolateCells(el_cells, array) {
     }
 }
 
-function showCells(el_cells) {
-    for (let i = 0; i < el_randomCells.length; i++) {
-        el_cells[i].classList.remove("hide");
-    }
-}
-
 function hideCells(el_cells) {
     for (let i = 0; i < el_randomCells.length; i++) {
         el_cells[i].classList.add("hide");
@@ -129,8 +123,8 @@ function disappearCells(el_cells) {
 }
 
 function appearCells(el_cells) {
-    showCells(el_cells);
     for (let i = 0; i < el_randomCells.length; i++) {
+        el_cells[i].classList.remove("hide");
         el_cells[i].classList.remove("disappear");
         el_cells[i].classList.add("appear");
     }
