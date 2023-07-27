@@ -12,57 +12,56 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
         <title>Simon-Dice</title>
     </head>
-    <body class="">
-        <header id="app_header" class="p-3 text-center">
-            <div class="container">
-                <h1>Simon Dice</h1>
-                <p>Random Array verrà mostrato per 30 secondi, poi scomparia. Al suo posto appariranno delle caselle bianche dove poterlo riscrivere. <br>
-                    Cliccando su conferma riapparirà Random Array e apparira un messagio che dice se i due array erano uguali o diversi. </p>
-            </div>
-            <!-- /.container -->
-        </header>
-        <!-- /#app_header -->
+    <body class="text-white">
+        <div class="container ">
+            <header id="app_header" class="p-3 text-center col-10 m-auto">
+                <h1 class="display-3 fw-bold pb-3">Simon Dice</h1>
+                <p class="fs-4">
+                    Hai 30 secondi per memorizzare questi 5 numeri casuali, dopodichè appariranno delle caselle dove poterli riscrivere.
+                    Cliccando conferma i numeri riappariranno assieme ad un messagio informativo. </p>
+            </header>
+            <!-- /#app_header -->
 
-        <main id="app_main">
-            <div class="container p-3 pt-5 text-bg-dark ">
-                <div class="row justify-content-center g-4">
-                    <div class="col-4 title pe-3 text-end">Random Array:</div>
-                    <div class="col-8 random_array d-flex gap-3 ">
-                        <div class="cell cell_1"> </div>
-                        <div class="cell cell_2"> </div>
-                        <div class="cell cell_3"> </div>
-                        <div class="cell cell_4"> </div>
-                        <div class="cell cell_5"> </div>
+            <main id="app_main">
+                <div class="card col-9 m-auto py-5">
+                    <div class="row justify-content-center g-4">
+                        <div class="col-4 title pe-3 text-end">Random Array:</div>
+                        <div class="col-8 random_array d-flex gap-3 ">
+                            <div class="cell cell_1"> </div>
+                            <div class="cell cell_2"> </div>
+                            <div class="cell cell_3"> </div>
+                            <div class="cell cell_4"> </div>
+                            <div class="cell cell_5"> </div>
+                        </div>
+                        <div class="col-4 title pe-3 text-end">Input Array:</div>
+                        <div class="col-8 input_array d-flex gap-3">
+                            <input type="number" class="cell cell_1 hide"> </input>
+                            <input type="number" class="cell cell_2 hide"> </input>
+                            <input type="number" class="cell cell_3 hide"> </input>
+                            <input type="number" class="cell cell_4 hide"> </input>
+                            <input type="number" class="cell cell_5 hide"> </input>
+                        </div>
+                        <div class="col-4 offset-4 d-flex justify-content-center mt-5">
+                            <button class="btn_confirm btn btn-primary notClickable"> Conferma</button>
+                        </div>
+                        <div class="col-4 mt-5">
+                            <div class="cell timer">30</div>
+                        </div>
+                        <div class="col-4 offset-4 title check hide text-center mt-2"></div>
+                        <div class="col-4 title mt-2">Timer</div>
                     </div>
-                    <div class="col-4 title pe-3 text-end">Input Array:</div>
-                    <div class="col-8 input_array d-flex gap-3">
-                        <input type="number" class="cell cell_1 hide"> </input>
-                        <input type="number" class="cell cell_2 hide"> </input>
-                        <input type="number" class="cell cell_3 hide"> </input>
-                        <input type="number" class="cell cell_4 hide"> </input>
-                        <input type="number" class="cell cell_5 hide"> </input>
-                    </div>
-                    <div class="col-4 offset-4 d-flex justify-content-center mt-5">
-                        <button class="btn_confirm notClickable"> Conferma</button>
-                    </div>
-                    <div class="col-4 mt-5">
-                        <div class="cell timer">30</div>
-                    </div>
-                    <div class="col-4 offset-4 title check hide text-center mt-2"></div>
-                    <div class="col-4 title mt-2">Timer</div>
-
-
+                    <!-- /.row -->
                 </div>
+                <!-- /.card -->
+            </main>
+            <!-- /#app_main -->
 
-            </div>
-            <!-- /.container -->
-        </main>
-        <!-- /#app_main -->
-
-        <footer id="app_footer" class="p-3 text-center">
-            <p>Made with &hearts; by <a href="#">Boolean</a></p>
-        </footer>
-        <!-- /#app_footer -->
+            <footer id="app_footer" class="p-5 text-center text-white">
+                <p>Made with &hearts; by <a href="#">Boolean</a></p>
+            </footer>
+            <!-- /#app_footer -->
+        </div>
+        <!-- /.container -->
 
         <!-- javascript -->
         <script src="./assets/js/main.js"></script>

@@ -2,18 +2,28 @@
     --sm_shadow: #9d9d9d;
 }
 
+body {
+    background-image: url(./../img/cbf-bg.jpg);
+}
+
 .debug * {
     border: 1px dashed red;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1) !important;
 }
 
 .cell {
     padding: 0.5rem 1rem;
     font-size: 2rem;
-    box-shadow: 0 0 10px var(--sm_shadow);
     width: 100px;
     text-align: center;
     position: relative;
     top: 0%;
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: none;
+    color: white;
 }
 
 @keyframes go_out {
@@ -59,9 +69,10 @@
 }
 
 .btn_confirm {
-    padding: 0.5rem 1rem;
-    font-size: 2rem;
-    border-radius: 1rem;
+    padding: 0.5rem 1rem !important;
+    font-size: 2rem !important;
+    border: none;
+    font-weight: bold;
 }
 
 
