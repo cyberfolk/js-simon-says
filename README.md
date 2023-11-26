@@ -1,14 +1,18 @@
-# js Simon-says
+# JS Simon-says
 
-:game_die: Ecco a voi Simon-says, Simon ci mostra a schermo 5 numeri in fila e ci darà 30 secondi per memorizzarli dopodichè ci chiederà di reinserirli. Gioco non adatto a chi ha la memoria di un pesciolina rosso :fish:
+**Initial commit**: 01/03/23
+
+**Tecnologie**: Javascript, HTML, CSS e Bootstrap.
+
+**Info**: :game_die: Here is Simon-says, Simon shows us on the screen 5 numbers in a row and will give us 30 seconds to memorize them after which he will ask us to enter them again. The game is not suitable for those with the memory of a goldfish :fish:
 
 <img src="./assets/img/screencapture.png"/>
 
 ## Milestone
 
--   Visualizzare in pagina 5 numeri casuali.
--   Far partire un timer di 30 secondi.
--   Allo scadere del timer i numeri scompaiono e l'utente dovrà reinserirli.
--   Inizialmente ho usato il `prompt()` per richiedere inumeri.
--   Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri sono stati individuati.
--   Per finire al posto del `prompt()` e `allert()` ho usato degli elementi html per inserire e mostrare a schermo il risultato.
+- Display 5 random numbers on the page.
+- Start a 30-second timer.
+- When the timer expires the numbers disappear and the user will have to re-enter them.
+- Initially I used the `prompt()` to prompt for numbers.
+- After the 5 numbers have been entered, the software says how many and which of the numbers have been identified.
+- Finally, instead of `prompt()` and `alert()` I used html elements to insert and display the result on the screen.
